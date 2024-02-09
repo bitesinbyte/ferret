@@ -1,4 +1,4 @@
-name: Mastodon Post
+name: Social Post
 
 on:
   schedule:
