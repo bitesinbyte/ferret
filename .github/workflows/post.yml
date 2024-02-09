@@ -5,6 +5,9 @@ on:
     - cron: "0 0 * * *" # Runs every day at midnight UTC
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -33,12 +36,10 @@ jobs:
         run: ./bin/ferret
 
       - name: Commit and push changes
-        env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_NAME: ${{ secrets.USER_NAME }}
+        shell: bash
         run: |
-          git config --local user.email "$USER_EMAIL"
-          git config --local user.name "$USER_NAME"
-          git add .
+          git config --local user.email ${{ secrets.USER_EMAIL }}
+          git config --local user.name ${{ secrets.USER_NAME }}
+          git add config.json
           git commit -m "bot:Update last run time"
           git push
