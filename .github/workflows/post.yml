@@ -33,9 +33,12 @@ jobs:
         run: ./bin/ferret
 
       - name: Commit and push changes
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_NAME: ${{ secrets.USER_NAME }}
         run: |
-          git config --local user.email ${{ secrets.UserEmail }}
-          git config --local user.name ${{ secrets.UserName }}
-          git add config.json
-          git commit -m "Update last run time"
+          git config --local user.email "$USER_EMAIL"
+          git config --local user.name "$USER_NAME"
+          git add .
+          git commit -m "bot:Update last run time"
           git push
