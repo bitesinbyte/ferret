@@ -1,0 +1,41 @@
+name: Mastodon Post
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.21.5
+      - name: go build
+        working-directory: .
+        run: go build -o bin/ferret ./cmd/ferret
+
+      - name: run application
+        env:
+          MASTODON_INSTANCE_URL: ${{ env.MASTODON_INSTANCE_URL }}
+          RSS_FEED_URL: ${{ env.RSS_FEED_URL }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        run: ./bin/ferret
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email ${{ secrets.UserEmail }}
+          git config --local user.name ${{ secrets.UserName }}
+          git add config.json
+          git commit -m "Update last run time"
+          git push
