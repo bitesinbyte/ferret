@@ -1,8 +1,13 @@
-# ferret
+<p align="center">
+  <a href="https://github.com/junhoyeo">
+    <img src="https://github.com/bitesinbyte/ferret/raw/main/.github/images/logo.png" width="256px" />
+  </a>
+</p>
+<h1 align="center">Ferret</h1>
 
 Automate the syndication of RSS feed posts to various social media platforms seamlessly with Ferret. Simplify your content distribution process and reach your audience effortlessly.
 
-All updated docs and blog posts related to ferret can be found [here](https://blogs.bitesinbyte.com/categories/automation/).
+All updated docs and blog posts related to ferret can be found [here](https://blogs.bitesinbyte.com/categories/ferret/).
 
 ## Configuration
 
