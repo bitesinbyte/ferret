@@ -2,6 +2,8 @@
 
 Automate the syndication of RSS feed posts to various social media platforms seamlessly with Ferret. Simplify your content distribution process and reach your audience effortlessly.
 
+All updated docs and blog posts related to ferret can be found [here](https://blogs.bitesinbyte.com/categories/automation/).
+
 ## Configuration
 
 Follow these steps to configure the project for your use:
