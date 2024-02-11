@@ -1,8 +1,8 @@
 {
     "last_run_time": "2024-02-11T07:07:57.635936+01:00",
-    "baseUrl": "https://blogs.bitesinbyte.com",
-    "feedEndpoint": "/feed.xml",
-    "doesMetaOgHasRelativePath": true,
+    "base_url": "https://blogs.bitesinbyte.com",
+    "feed_endpoint": "/feed.xml",
+    "does_meta_og_image_has_relative_path": true,
     "socials": [
         "linkedin",
         "mastodon",
