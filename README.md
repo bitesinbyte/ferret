@@ -57,22 +57,22 @@ Follow these steps to configure the project for your use:
       ```
 
     For detailed instructions on how to add secrets and variables in GitHub, refer to the GitHub documentation: Creating and storing encrypted secrets.
-3. #### Updating config.json
-    config.json contains the configurations regarding your connectors.
+   3. #### Updating config.json
+       config.json contains the configurations regarding your connectors.
 
-    ```json
-    {
-      "last_run_time": "2024-02-11T07:07:57.635936+01:00",
-      "baseUrl": "https://blogs.bitesinbyte.com",
-      "feedEndpoint": "/feed.xml",
-      "doesMetaOgHasRelativePath": true,
-      "socials": [
-        "linkedin",
-        "mastodon",
-        "twitter"
-      ]
-    }
-    ```
+        ```json
+       {
+          "last_run_time": "2024-02-11T07:07:57.635936+01:00",
+          "base_url": "https://blogs.bitesinbyte.com",
+          "feed_endpoint": "/feed.xml",
+          "does_meta_og_image_has_relative_path": true,
+          "socials": [
+             "linkedin",
+             "mastodon",
+             "twitter"
+          ]
+       }
+        ```
 Note
 
 Ensure that you've provided the correct values for each secret and variable according to your setup. These configurations are necessary for the smooth functioning of the project and integration with external services.
