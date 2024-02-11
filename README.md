@@ -13,7 +13,7 @@ All updated docs and blog posts related to ferret can be found [here](https://bl
 
 Follow these steps to configure the project for your use:
 
-1.  Fork the GitHub Repository
+1.  #### Fork the GitHub Repository
 
     To make changes and contribute to the project, fork the GitHub repository by following these steps:
 
@@ -22,7 +22,7 @@ Follow these steps to configure the project for your use:
     - Wait for the forking process to complete.
     - Once forked, you will have your copy of the repository in your GitHub account.
 
-2.  Setting Up GitHub Secrets and Variables
+2.  #### Setting Up GitHub Secrets and Variables
 
     To securely store sensitive information and configure environment variables for your GitHub Actions workflow, follow these steps:
 
@@ -33,13 +33,16 @@ Follow these steps to configure the project for your use:
       3. In the left sidebar, click on "Secrets".
       4. Click on "New repository secret".
       5. Add the following secrets:
-         - MASTODON_ACCESS_TOKEN
-         - TWITTER_CONSUMER_KEY
-         - TWITTER_CONSUMER_SECRET
-         - TWITTER_ACCESS_TOKEN
-         - TWITTER_ACCESS_TOKEN_SECRET
-         - USER_EMAIL: GitHub User Email
-         - USER_NAME: GitHub User Name
+      ```
+         MASTODON_ACCESS_TOKEN
+         LINKEDIN_ACCESS_TOKEN
+         TWITTER_CONSUMER_KEY
+         TWITTER_CONSUMER_SECRET
+         TWITTER_ACCESS_TOKEN
+         TWITTER_ACCESS_TOKEN_SECRET
+         USER_EMAIL: GitHub User Email
+         USER_NAME: GitHub User Name
+      ```
 
     - Setting Up GitHub Variables:
 
@@ -49,11 +52,27 @@ Follow these steps to configure the project for your use:
       2. In the left sidebar, click on "Secrets".
       3. Scroll down to the "Environment Variables" section.
       4. Add the following variables:
-         - RSS_FEED_URL
-         - MASTODON_INSTANCE_URL
+      ```
+         MASTODON_INSTANCE_URL
+      ```
 
-For detailed instructions on how to add secrets and variables in GitHub, refer to the GitHub documentation: Creating and storing encrypted secrets.
+    For detailed instructions on how to add secrets and variables in GitHub, refer to the GitHub documentation: Creating and storing encrypted secrets.
+3. #### Updating config.json
+    config.json contains the configurations regarding your connectors.
 
+    ```json
+    {
+      "last_run_time": "2024-02-11T07:07:57.635936+01:00",
+      "baseUrl": "https://blogs.bitesinbyte.com",
+      "feedEndpoint": "/feed.xml",
+      "doesMetaOgHasRelativePath": true,
+      "socials": [
+        "linkedin",
+        "mastodon",
+        "twitter"
+      ]
+    }
+    ```
 Note
 
 Ensure that you've provided the correct values for each secret and variable according to your setup. These configurations are necessary for the smooth functioning of the project and integration with external services.

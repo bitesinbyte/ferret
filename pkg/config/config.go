@@ -9,7 +9,11 @@ import (
 
 // Config struct to hold Mastodon and RSS feed details
 type Config struct {
-	LastRunTime time.Time `json:"last_run_time"`
+	LastRunTime               time.Time `json:"last_run_time"`
+	BaseUrl                   string    `json:"baseUrl"`
+	FeedEndpoint              string    `json:"feedEndpoint"`
+	DoesMetaOgHasRelativePath bool      `json:"doesMetaOgHasRelativePath"`
+	Socials                   []string  `json:"socials"`
 }
 
 func LoadConfig(filename string) Config {

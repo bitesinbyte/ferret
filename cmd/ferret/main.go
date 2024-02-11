@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/bitesinbyte/ferret/pkg/external"
+	"github.com/bitesinbyte/ferret/pkg/factory"
 	"log"
-	"os"
 	"time"
 
 	"github.com/bitesinbyte/ferret/pkg/config"
-	"github.com/bitesinbyte/ferret/pkg/poster"
 	"github.com/joho/godotenv"
 	"github.com/mmcdole/gofeed"
 )
@@ -21,27 +21,34 @@ func main() {
 	configData := config.LoadConfig("config.json")
 
 	// Parse RSS feed
-	feed, err := gofeed.NewParser().ParseURL(os.Getenv("RSS_FEED_URL"))
+	feed, err := gofeed.NewParser().ParseURL(configData.BaseUrl + configData.FeedEndpoint)
 	if err != nil {
 		log.Fatalf("Error parsing RSS feed: %v", err)
 	}
 
 	// Check for new posts and post to Mastodon and Twitter
 	for _, item := range feed.Items {
-		if item.PublishedParsed.After(configData.LastRunTime) {
+		if !item.PublishedParsed.After(configData.LastRunTime) {
 			fmt.Printf("Processing %s", item.Title)
 
-			// New post found, post to Mastodon
-			post := fmt.Sprintf("Just posted a new blog \n%s \n%s", item.Title, item.Link)
-			err := poster.PostToot(post)
-			if err != nil {
-				log.Fatalf("Error posting to Mastodon: %v", err)
+			// Create Hashtags
+			hashTags := ""
+			for _, category := range item.Categories {
+				hashTags += fmt.Sprintf("%s%s ", "#", category)
 			}
 
-			// New post found, post to Twitter
-			err = poster.PostTweet(post)
-			if err != nil {
-				log.Fatalf("Error posting to Twitter: %v", err)
+			for _, social := range configData.Socials {
+				socialClient := factory.CreateSocialPoster(social)
+				post := external.Post{
+					Title:       item.Title,
+					Link:        item.Link,
+					HashTags:    hashTags,
+					Description: item.Description,
+				}
+				err := socialClient.Post(configData, post)
+				if err != nil {
+					log.Fatalf("Error posting to %s: %v", social, err)
+				}
 			}
 		}
 	}

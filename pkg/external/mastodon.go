@@ -1,15 +1,20 @@
-package poster
+package external
 
 import (
 	"fmt"
+	"github.com/bitesinbyte/ferret/pkg/config"
+	"io"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
 )
 
-func PostToot(content string) error {
+type Mastodon struct {
+}
 
+func (m Mastodon) Post(configData config.Config, post Post) error {
+	content := fmt.Sprintf("Just posted a new blog \n%s \n%s\n%s", post.Title, post.Link, post.HashTags)
 	var instanceURL = os.Getenv("MASTODON_INSTANCE_URL")
 	var accessToken = os.Getenv("MASTODON_ACCESS_TOKEN")
 
@@ -29,7 +34,12 @@ func PostToot(content string) error {
 	if err != nil {
 		return err
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(resp.Body)
 
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("unexpected status code: %d", resp.StatusCode)
