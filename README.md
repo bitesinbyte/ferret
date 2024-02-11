@@ -9,6 +9,15 @@ Automate the syndication of RSS feed posts to various social media platforms sea
 
 All updated docs and blog posts related to ferret can be found [here](https://blogs.bitesinbyte.com/categories/ferret/).
 
+## Supported Social Sites
+| Site       | Status        |
+|------------|---------------|
+| Mastodon   | Supported     | 
+| LinkedIn   | Supported     | 
+| Twitter(X) | Supported     | 
+| Thread     | Not-Supported | 
+| Facebook   | Not-Supported | 
+
 ## Configuration
 
 Follow these steps to configure the project for your use:
