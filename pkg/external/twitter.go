@@ -1,4 +1,4 @@
-package poster
+package external
 
 import (
 	"bytes"
@@ -7,6 +7,8 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
+	"github.com/bitesinbyte/ferret/pkg/config"
+	"io"
 	"math/rand"
 	"net/http"
 	"net/url"
@@ -16,8 +18,11 @@ import (
 	"time"
 )
 
-func PostTweet(content string) error {
+type Twitter struct {
+}
 
+func (m Twitter) Post(configData config.Config, post Post) error {
+	content := fmt.Sprintf("Just posted a new blog \n%s \n%s\n%s", post.Title, post.Link, post.HashTags)
 	var consumerKey = os.Getenv("TWITTER_CONSUMER_KEY")
 	var consumerSecret = os.Getenv("TWITTER_CONSUMER_SECRET")
 	var accessToken = os.Getenv("TWITTER_ACCESS_TOKEN")
@@ -53,7 +58,12 @@ func PostTweet(content string) error {
 	if err != nil {
 		return fmt.Errorf("error sending HTTP request: %v", err)
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(resp.Body)
 
 	// Check the response status
 	if resp.StatusCode != http.StatusCreated {
