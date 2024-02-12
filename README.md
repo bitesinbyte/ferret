@@ -15,8 +15,8 @@ All updated docs and blog posts related to ferret can be found [here](https://bl
 | Mastodon   | Supported     | 
 | LinkedIn   | Supported     | 
 | Twitter(X) | Supported     | 
-| Thread     | Not-Supported | 
-| Facebook   | Not-Supported | 
+| Facebook   | Supported     | 
+| Thread     | Not-Supported |
 
 ## Configuration
 
@@ -51,6 +51,7 @@ Follow these steps to configure the project for your use:
          TWITTER_ACCESS_TOKEN_SECRET
          USER_EMAIL: GitHub User Email
          USER_NAME: GitHub User Name
+         FACEBOOK_ACCESS_TOKEN
       ```
 
     - Setting Up GitHub Variables:
@@ -63,6 +64,7 @@ Follow these steps to configure the project for your use:
       4. Add the following variables:
       ```
          MASTODON_INSTANCE_URL
+         FACEBOOK_PAGE_ID
       ```
 
     For detailed instructions on how to add secrets and variables in GitHub, refer to the GitHub documentation: Creating and storing encrypted secrets.
@@ -76,6 +78,7 @@ Follow these steps to configure the project for your use:
           "feed_endpoint": "/feed.xml",
           "does_meta_og_image_has_relative_path": true,
           "socials": [
+             "facebook",
              "linkedin",
              "mastodon",
              "twitter"
@@ -109,6 +112,9 @@ TWITTER_CONSUMER_SECRET=
 TWITTER_ACCESS_TOKEN=
 TWITTER_ACCESS_TOKEN_SECRET=
 RSS_FEED_URL=
+LINKEDIN_ACCESS_TOKEN=
+FACEBOOK_ACCESS_TOKEN=
+FACEBOOK_PAGE_ID=
 ```
 
 Fill in the values for these variables according to your environment.
