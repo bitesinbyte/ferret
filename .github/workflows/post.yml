@@ -33,6 +33,7 @@ jobs:
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          LINKEDIN_ACCESS_TOKEN: ${{secrets.LINKEDIN_ACCESS_TOKEN}}
         run: ./bin/ferret
 
       - name: Commit and push changes
