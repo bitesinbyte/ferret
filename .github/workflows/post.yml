@@ -27,13 +27,14 @@ jobs:
       - name: run application
         env:
           MASTODON_INSTANCE_URL: ${{ vars.MASTODON_INSTANCE_URL }}
-          RSS_FEED_URL: ${{ vars.RSS_FEED_URL }}
+          FACEBOOK_PAGE_ID: ${{ vars.FACEBOOK_PAGE_ID }}
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
           LINKEDIN_ACCESS_TOKEN: ${{secrets.LINKEDIN_ACCESS_TOKEN}}
+          FACEBOOK_ACCESS_TOKEN: ${{secrets.FACEBOOK_ACCESS_TOKEN}}
         run: ./bin/ferret
 
       - name: Commit and push changes

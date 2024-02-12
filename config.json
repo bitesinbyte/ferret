@@ -4,6 +4,7 @@
     "feed_endpoint": "/feed.xml",
     "does_meta_og_image_has_relative_path": true,
     "socials": [
+        "facebook",
         "linkedin",
         "mastodon",
         "twitter"
