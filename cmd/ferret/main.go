@@ -28,7 +28,7 @@ func main() {
 
 	// Check for new posts and post to Mastodon and Twitter
 	for _, item := range feed.Items {
-		if !item.PublishedParsed.After(configData.LastRunTime) {
+		if item.PublishedParsed.After(configData.LastRunTime) {
 			fmt.Printf("Processing %s", item.Title)
 
 			// Create Hashtags
