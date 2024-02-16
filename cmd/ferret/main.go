@@ -26,6 +26,8 @@ func main() {
 		log.Fatalf("Error parsing RSS feed: %v", err)
 	}
 
+	var anythingProcessedToday = false
+
 	// Check for new posts and post to Mastodon and Twitter
 	for _, item := range feed.Items {
 		if item.PublishedParsed.After(configData.LastRunTime) {
@@ -50,11 +52,14 @@ func main() {
 					log.Fatalf("Error posting to %s: %v", social, err)
 				}
 			}
+			anythingProcessedToday = true
 		}
 	}
 
-	// Update last run time
-	configData.LastRunTime = time.Now()
-	config.SaveConfig("config.json", configData)
+	if anythingProcessedToday {
+		// Update last run time
+		configData.LastRunTime = time.Now()
+		config.SaveConfig("config.json", configData)
+	}
 	fmt.Printf("Done")
 }
