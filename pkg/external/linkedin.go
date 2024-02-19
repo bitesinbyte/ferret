@@ -9,6 +9,7 @@ import (
 	"io"
 	"mime/multipart"
 	"net/http"
+	"net/url"
 	"os"
 	"strings"
 )
@@ -136,15 +137,24 @@ func getThumbnail(configData config.Config, articleUrl string, userId string, ac
 	}
 	return nil, initializeUpload.Value.Image
 }
-
-func uploadImage(articleUrl string, configData config.Config, initializeUpload *initializeUploadResponse) error {
-	imageUrl, err := getOGImageURL(articleUrl)
-	if err != nil {
-		return err
+func getMetaOgHasRelativePath(imageUrl string, configData config.Config) string {
+	_, err := url.ParseRequestURI(imageUrl)
+	if err == nil {
+		return imageUrl
 	}
-
 	if configData.DoesMetaOgHasRelativePath {
 		imageUrl = configData.BaseUrl + imageUrl
+	}
+	_, err = url.ParseRequestURI(imageUrl)
+	if err != nil {
+		return ""
+	}
+	return imageUrl
+}
+func uploadImage(articleUrl string, configData config.Config, initializeUpload *initializeUploadResponse) error {
+	imageUrl, err := getOGImageURL(articleUrl, configData)
+	if err != nil {
+		return err
 	}
 
 	resp, err := http.Get(imageUrl)
@@ -198,7 +208,7 @@ func uploadImage(articleUrl string, configData config.Config, initializeUpload *
 }
 
 // GetOGImageURL retrieves the og:image URL from the HTTP header of a given URL
-func getOGImageURL(url string) (string, error) {
+func getOGImageURL(url string, configData config.Config) (string, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return "", err
@@ -227,7 +237,7 @@ func getOGImageURL(url string) (string, error) {
 			ogImageURL = content
 		}
 	})
-
+	ogImageURL = getMetaOgHasRelativePath(ogImageURL, configData)
 	if ogImageURL == "" {
 		return "", fmt.Errorf("og:image tag not found in HTML head section")
 	}
