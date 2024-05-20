@@ -1,0 +1,19 @@
+{
+  "name": "ferret",
+  "image": "mcr.microsoft.com/devcontainers/go:1.21",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.go",
+        "davidanson.vscode-markdownlint",
+        "shardulm94.trailing-spaces",
+        "IBM.output-colorizer",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "go.useLanguageServer": true
+      }
+    }
+  },
+  "remoteUser": "root"
+}
