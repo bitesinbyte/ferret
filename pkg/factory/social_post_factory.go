@@ -2,8 +2,9 @@ package factory
 
 import (
 	"fmt"
-	"github.com/bitesinbyte/ferret/pkg/external"
 	"strings"
+
+	"github.com/bitesinbyte/ferret/pkg/external"
 )
 
 const (
@@ -11,6 +12,7 @@ const (
 	MASTODON = "mastodon"
 	TWITTER  = "twitter"
 	FACEBOOK = "facebook"
+	THREAD   = "thread"
 )
 
 func CreateSocialPoster(socialSite string) external.Poster {
@@ -24,6 +26,8 @@ func CreateSocialPoster(socialSite string) external.Poster {
 		return external.Twitter{}
 	} else if lowerCaseSocialSite == FACEBOOK {
 		return external.Facebook{}
+	} else if lowerCaseSocialSite == THREAD {
+		return external.Thread{}
 	} else {
 		panic(fmt.Sprintf("%s is not supported", lowerCaseSocialSite))
 	}
