@@ -11,19 +11,19 @@ All updated docs and blog posts related to ferret can be found [here](https://bl
 
 ## Supported Social Sites
 
-| Site       | Status        |
-|------------|---------------|
-| Mastodon   | Supported     |
-| LinkedIn   | Supported     |
-| Twitter(X) | Supported     |
-| Facebook   | Supported     |
+| Site       | Status    |
+| ---------- | --------- |
+| Mastodon   | Supported |
+| LinkedIn   | Supported |
+| Twitter(X) | Supported |
+| Facebook   | Supported |
 | Thread     | Supported |
 
 ## Configuration
 
 Follow these steps to configure the project for your use:
 
-1. #### Fork the GitHub Repository
+1.  #### Fork the GitHub Repository
 
     To make changes and contribute to the project, fork the GitHub repository by following these steps:
 
@@ -32,7 +32,7 @@ Follow these steps to configure the project for your use:
     - Wait for the forking process to complete.
     - Once forked, you will have your copy of the repository in your GitHub account.
 
-2. #### Setting Up GitHub Secrets and Variables
+2.  #### Setting Up GitHub Secrets and Variables
 
     To securely store sensitive information and configure environment variables for your GitHub Actions workflow, follow these steps:
 
@@ -54,7 +54,7 @@ Follow these steps to configure the project for your use:
          USER_EMAIL: GitHub User Email
          USER_NAME: GitHub User Name
          FACEBOOK_ACCESS_TOKEN
-         THREAD_ACCESS_TOKEN   
+         THREAD_ACCESS_TOKEN
       ```
 
     - Setting Up GitHub Variables:
@@ -74,25 +74,29 @@ Follow these steps to configure the project for your use:
 
     For detailed instructions on how to add secrets and variables in GitHub, refer to the GitHub documentation: Creating and storing encrypted secrets.
 
-3. #### Updating config.json
+3.  #### Updating config.json
 
-       config.json contains the configurations regarding your connectors.
+    config.json contains the configurations regarding your connectors.
 
         ```json
-       {
-          "last_run_time": "2024-02-11T07:07:57.635936+01:00",
-          "base_url": "https://blogs.bitesinbyte.com",
-          "feed_endpoint": "/feed.xml",
-          "does_meta_og_image_has_relative_path": true,
-          "socials": [
-             "facebook",
-             "linkedin",
-             "mastodon",
-             "twitter",
-             "thread"
-          ]
-       }
-        ```
+
+    {
+    "last_run_time": "2024-02-11T07:07:57.635936+01:00",
+    "base_url": "https://blogs.bitesinbyte.com",
+    "feed_endpoint": "/feed.xml",
+    "does_meta_og_image_has_relative_path": true,
+    "socials": [
+    "facebook",
+    "linkedin",
+    "mastodon",
+    "twitter",
+    "thread"
+    ]
+    }
+
+    ```
+
+    ```
 
 Note
 
