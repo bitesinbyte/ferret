@@ -78,24 +78,20 @@ Follow these steps to configure the project for your use:
 
     config.json contains the configurations regarding your connectors.
 
-        ```json
-
+    ```json
     {
     "last_run_time": "2024-02-11T07:07:57.635936+01:00",
     "base_url": "https://blogs.bitesinbyte.com",
     "feed_endpoint": "/feed.xml",
     "does_meta_og_image_has_relative_path": true,
     "socials": [
-    "facebook",
-    "linkedin",
-    "mastodon",
-    "twitter",
-    "thread"
+        "facebook",
+        "linkedin",
+        "mastodon",
+        "twitter",
+        "thread"
     ]
     }
-
-    ```
-
     ```
 
 Note
