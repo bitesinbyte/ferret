@@ -6,6 +6,7 @@
     "socials": [
         "facebook",
         "mastodon",
-        "twitter"
+        "twitter",
+        "thread"
     ]
 }
