@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"os"
 
 	"github.com/bitesinbyte/ferret/pkg/config"
 )
 
-const ThreadCreatePostUrl = "https://graph.threads.net/v1.0/%s/threads?media_type=TEXT&text=%s&access_token=%s"
+const ThreadCreatePostUrl = "https://graph.threads.net/v1.0/%s/threads?media_type=Text&text=%s&access_token=%s"
 const ThreadPublishPostUrl = "https://graph.threads.net/v1.0/%s/threads_publish?creation_id=%s&access_token=%s"
 
 type Thread struct {
@@ -31,7 +32,7 @@ func (t Thread) Post(configData config.Config, post Post) error {
 
 func createThreadPost(post Post) (*threadPostResponse, error) {
 	var postUrl = fmt.Sprintf(ThreadCreatePostUrl, os.Getenv("THREAD_USER_ID"),
-		fmt.Sprintf("Just posted a new blog \n%s \n%s\n%s", post.Title, post.Link, post.HashTags),
+		url.QueryEscape(fmt.Sprintf("Just posted a new blog \n%s \n%s\n%s", post.Title, post.Link, post.HashTags)),
 		os.Getenv("THREAD_ACCESS_TOKEN"))
 
 	req, err := http.NewRequest(http.MethodPost, postUrl, nil)
