@@ -93,8 +93,16 @@ Follow these steps to configure the project for your use:
     ]
     }
     ```
+4. #### Enable workflow(GitHub Action)
+    By default, GitHub disables workflows when you fork a repository. Since Ferret depends on GitHub Actions/Workflows, you can enable them by following these steps:
+    - Navigate to the "Actions" tab.
+    - Click "I understand my workflows, go ahead and enable them."
+      ![workflow1](.github/images/workflow1.png)
+    - Locate and enable the "Social Post" workflow.
+      ![workflow2](.github/images/workflow2.png)
 
-Note
+
+<span style='color: red;'>Note</span>
 
 Ensure that you've provided the correct values for each secret and variable according to your setup. These configurations are necessary for the smooth functioning of the project and integration with external services.
 
@@ -148,7 +156,8 @@ Once the application is built, you can run it using the following command:
 
 This command will execute the compiled ferret binary and start the application locally.
 
-Note
+
+<span style='color: red;'>Note</span>
 
 Ensure all required environment variables are correctly set in the .env file before running the application.
 
