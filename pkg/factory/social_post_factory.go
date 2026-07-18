@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bitesinbyte/ferret/pkg/external"
+	"github.com/lamplitlabs/ferret/pkg/external"
 )
 
 const (

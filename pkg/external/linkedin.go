@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
-	"github.com/bitesinbyte/ferret/pkg/config"
+	"github.com/lamplitlabs/ferret/pkg/config"
 	"io"
 	"mime/multipart"
 	"net/http"

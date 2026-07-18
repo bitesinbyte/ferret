@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://github.com/bitesinbyte">
-    <img src="https://github.com/bitesinbyte/ferret/raw/main/.github/images/logo.png" width="256px" />
+  <a href="https://github.com/lamplitlabs">
+    <img src="https://github.com/lamplitlabs/ferret/raw/main/.github/images/logo.png" width="256px" />
   </a>
 </p>
 <h1 align="center">Ferret</h1>
 
 Automate the syndication of RSS feed posts to various social media platforms seamlessly with Ferret. Simplify your content distribution process and reach your audience effortlessly.
 
-All updated docs and blog posts related to ferret can be found [here](https://blogs.bitesinbyte.com/categories/ferret/).
+All updated docs and blog posts related to ferret can be found [here](https://blogs.lamplitlabs.com/categories/ferret/).
 
 ## Supported Social Sites
 
@@ -81,7 +81,7 @@ Follow these steps to configure the project for your use:
     ```json
     {
     "last_run_time": "2024-02-11T07:07:57.635936+01:00",
-    "base_url": "https://blogs.bitesinbyte.com",
+    "base_url": "https://blogs.lamplitlabs.com",
     "feed_endpoint": "/feed.xml",
     "does_meta_og_image_has_relative_path": true,
     "socials": [
@@ -163,4 +163,4 @@ Ensure all required environment variables are correctly set in the .env file bef
 
 ## License
 
-Licensed under the [MIT license](https://github.com/bitesinbyte/ferret/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/lamplitlabs/ferret/blob/main/LICENSE).

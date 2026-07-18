@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/bitesinbyte/ferret/pkg/config"
+	"github.com/lamplitlabs/ferret/pkg/config"
 )
 
 const ThreadCreatePostUrl = "https://graph.threads.net/v1.0/%s/threads?media_type=Text&text=%s&access_token=%s"

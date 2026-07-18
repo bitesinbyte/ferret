@@ -7,7 +7,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	"github.com/bitesinbyte/ferret/pkg/config"
+	"github.com/lamplitlabs/ferret/pkg/config"
 	"io"
 	"math/rand"
 	"net/http"

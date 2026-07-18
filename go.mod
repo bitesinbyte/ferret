@@ -1,4 +1,4 @@
-module github.com/bitesinbyte/ferret
+module github.com/lamplitlabs/ferret
 
 go 1.21.5
 
