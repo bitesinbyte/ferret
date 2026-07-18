@@ -2,7 +2,7 @@ package external
 
 import (
 	"fmt"
-	"github.com/bitesinbyte/ferret/pkg/config"
+	"github.com/lamplitlabs/ferret/pkg/config"
 	"io"
 	"net/http"
 	"net/url"

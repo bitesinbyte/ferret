@@ -1,6 +1,6 @@
 package external
 
-import "github.com/bitesinbyte/ferret/pkg/config"
+import "github.com/lamplitlabs/ferret/pkg/config"
 
 type Post struct {
 	Title       string

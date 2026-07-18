@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/bitesinbyte/ferret/pkg/external"
-	"github.com/bitesinbyte/ferret/pkg/factory"
+	"github.com/lamplitlabs/ferret/pkg/external"
+	"github.com/lamplitlabs/ferret/pkg/factory"
 	"log"
 	"time"
 
-	"github.com/bitesinbyte/ferret/pkg/config"
 	"github.com/joho/godotenv"
+	"github.com/lamplitlabs/ferret/pkg/config"
 	"github.com/mmcdole/gofeed"
 )
 
